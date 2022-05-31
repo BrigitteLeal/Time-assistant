@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <li><button id="chronometer" class="button header--button">Cronometro</button></li>
+            <li><button id="timer" class="button header--button"><a href="./timer.html">Timer</a></button></li>
+            <li><button id="pomodoro" class="button header--button"><a href="./pomodoro.html">Pomodoro</a></button></li>
+    
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1 class="hero--title">Cronometro</h1>
+            <div>
+                <p id="time"> <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span></p>
+            </div>
+            <div>
+                <button class="button button-hero" onclick="startChronometer()">Start</button>
+                <button class="button button-hero" onclick="stopChronometer()">Stop</button>
+                <button class="button button-hero" onclick="resetChronometer()">Reset</button>
+                <button class="button button-hero" onclick="lapChronometer()">Vuelta</button>
+            </div>
+            <div id = "result">
+                <!-- <span id="result"></span> -->
+            </div>
+
+        </section>
+    </main>
+    <script src="./index.js"></script>
+</body>
+</html>

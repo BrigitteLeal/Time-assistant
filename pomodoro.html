@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.html">
+    <link rel="stylesheet" href="./pomodoro.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <li><button id="chronometer" class="button header--button"><a href="./index.html">Cronometro</a></button></li>
+            <li><button id="timer" class="button header--button"><a href="./timer.html">Timer</a></button></li>
+            <li><button id="pomodoro" class="button header--button"><a href="./pomodoro.html">Pomodoro</a></button></li>
+    
+        </nav>
+    </header>
+    <main>
+        <h1 class="hero--title">Pomodoro</h1>
+        <div class="main-container">
+            <div>
+                <button id="pomodoroOption" class="button-title" onclick="executePomodoro()">Pomodoro</button>
+                <button id="shortBreakOption"  class="button-title" onclick="executeShortBreak()">Short Break</button>
+                <button id="longBreakOption"  class="button-title" onclick="executeLongBreak()">Long Break</button>
+            </div>
+            <div id="principal">
+                <section class="section-container  pomodoro-container" >
+                    <div class="hero--time">
+                        <p id="time"><span id="minutes">25</span>:<span id="seconds">00</span></p>
+                    </div>
+                    <div class="hero--buttons">
+                        <button class="buttons" id="buttonStartPomodoro" type="button" onclick="startPomodoro()">Start</button>
+                    </div>
+                    <div>
+                        <button class="button button-hero" onclick="stopPomodoro()">Stop</button>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- <section class="section-container short-break-container">
+                <div class="hero--time">
+                    <p id="time"><span id="minutes1">5</span>:<span id="seconds1">00</span></p>
+                </div>
+                <div class="hero--buttons">
+                    <button class="buttons" id="buttonStartShort" type="button" onclick="startShortBreak()">Start</button>
+                </div>
+                <div>
+                    <button class="button button-hero" onclick="stopShortBreak()">Stop</button>
+                </div>
+            </section> -->
+            <!-- <section class="section-container  long-break-container">
+                <div class="hero--time">
+                    <p id="time"><span id="minutes2">15</span>:<span id="seconds2">00</span></p>
+                </div>
+                <div class="hero--buttons">
+                    <button class="buttons" id="buttonStartLong" type="button" onclick="startLongBreak()">Start</button>
+                </div>
+                <div>
+                    <button class="button button-hero" onclick="stopLongBreak()">Stop</button>
+                </div>
+            </section> -->
+        </div>
+    </main> 
+    <script src="./pomodoro.js"></script>
+</body>
+</html>
