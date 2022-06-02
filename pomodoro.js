@@ -10,11 +10,11 @@ let minutesSpan2 = document.querySelector("#minutes2");
 const hero = document.querySelector("#principal");
 
 let secondsValue = 0;
-let minutesValue = 0;
+let minutesValue = 25;
 let secondsValue1 = 0;
-let minutesValue1 = 0;
+let minutesValue1 = 5;
 let secondsValue2 = 0;
-let minutesValue2 = 0;
+let minutesValue2 = 15;
 let intervalPomodoro;
 let intervalShort;
 let intervalLong;
@@ -24,30 +24,14 @@ let buttonLong;
 let confirmation;
 
 let startButtonPomodoro = false;
+let startButtonShortBreak = false;
+let startButtonLongBreak = false;
 
-// let buttonStartPomodoro = document.querySelector("#buttonStartPomodoro");
-// let buttonStartShort = document.querySelector("#buttonStartShort");
-// let buttonStartLong = document.querySelector("#buttonStartLong");
-
-// let pomodoroOption = document.querySelector("#pomodoroOption");
-// let shortBreakOption = document.querySelector("#shortBreakOption");
-// let longBreakOption = document.querySelector("#longBreakOption");
-
-
-
-// const chanceButton = (event) => {
-//     // (minutesValue != 00 && secondsValue != 00 || minutesValue1 != 00 && secondsValue1 != 00 || minutesValue2 != 00 && secondsValue2 != 00)
-// };
-// let clickPomodoro = pomodoroOption.addEventListener("click", chanceButton);
-// let clickShort = shortBreakOption.addEventListener("click", chanceButton);
-// let clickLong = longBreakOption.addEventListener("click", chanceButton);
 
 const startPomodoro = () => {
     startButtonPomodoro = true;
     buttonPomodoro = event.target;
     buttonPomodoro.disabled = true;
-    secondsValue = 0;
-    minutesValue = 25;
     intervalPomodoro = setInterval(() => {
         secondsValue -= 1;
         if (secondsValue === -1) {
@@ -58,7 +42,10 @@ const startPomodoro = () => {
             clearInterval(intervalPomodoro)
             setTimeout(() => {
                 alert("Terminado"); 
-                startButtonPomodoro = false  
+                startButtonPomodoro = false 
+                secondsValue = 0;
+                minutesValue = 25;
+                buttonPomodoro.disabled = false;
             }, 500);
         }
         minutesSpan.textContent = ("0" + minutesValue).slice(-2);
@@ -70,7 +57,6 @@ const stopPomodoro = () => {
         buttonPomodoro.disabled = false;
     }
     clearInterval(intervalPomodoro);  
-    // startButtonPomodoro = false
 }
 const showPomodoro = () => {
     hero.innerHTML = `
@@ -92,9 +78,15 @@ const showPomodoro = () => {
     clearInterval(intervalLong); 
 }
 const executePomodoro = () => {
-    if (startButtonPomodoro) {
+    if (startButtonShortBreak || startButtonLongBreak ) {
         confirmation = confirm("¿Esta seguro que quiere cambiar de opción?");
         if (confirmation){
+            startButtonShortBreak = false;
+            startButtonLongBreak = false;
+            secondsValue1 = 0;
+            minutesValue1 = 5;
+            secondsValue2 = 0;
+            minutesValue2 = 15;
             showPomodoro();
         }else{
             return false;
@@ -104,11 +96,9 @@ const executePomodoro = () => {
     }
 } 
 const startShortBreak = () => {
-    startButtonPomodoro = true;
+    startButtonShortBreak = true;
     buttonShort = event.target;
     buttonShort.disabled = true;
-    secondsValue1 = 0;
-    minutesValue1 = 5;
     intervalShort = setInterval(() => {
         secondsValue1 -= 1;
         if (secondsValue1 === -1) {
@@ -118,7 +108,11 @@ const startShortBreak = () => {
         if (minutesValue1 === 0 && secondsValue1 === 0) {
             clearInterval(intervalShort);
             setTimeout(() => {
-                alert("Terminado");   
+                alert("Terminado");  
+                startButtonShortBreak = false 
+                secondsValue1 = 0;
+                minutesValue1 = 5;
+                buttonShort.disabled = false;
             }, 500);
         }
         minutesSpan1.textContent = ("0" + minutesValue1).slice(-2);
@@ -130,16 +124,18 @@ const stopShortBreak = () => {
         buttonShort.disabled = false;
     }
     clearInterval(intervalShort); 
-    // startButtonPomodoro = false;
-
 }
 const executeShortBreak = () => {
-    if(startButtonPomodoro){
+    if(startButtonPomodoro || startButtonLongBreak ){
         confirmation = confirm("¿Esta seguro que quiere cambiar de opción?");
         if (confirmation){
-            // startButtonPomodoro = false;
+            startButtonPomodoro = false;
+            startButtonLongBreak = false;
+            secondsValue = 0;
+            minutesValue = 25;
+            secondsValue2 = 0;
+            minutesValue2 = 15;
             showShortBreak();
-            // return
         }else{
             return false;
         }
@@ -165,13 +161,12 @@ const showShortBreak = () => {
     minutesSpan1 = document.querySelector("#minutes1");
     clearInterval(intervalPomodoro);
     clearInterval(intervalLong);  
+    
 }
 const startLongBreak = () => {
-    startButtonPomodoro = true;
+    startButtonLongBreak = true;
     buttonLong = event.target;
     buttonLong.disabled = true;
-    secondsValue2 = 0;
-    minutesValue2 = 15;
     intervalLong = setInterval(() => {
         secondsValue2 -= 1;
         if (secondsValue2 === -1) {
@@ -181,7 +176,11 @@ const startLongBreak = () => {
         if (minutesValue2 === 0 && secondsValue2 === 0) {
             clearInterval(intervalLong);
             setTimeout(() => {
-                alert("Terminado");   
+                alert("Terminado");
+                startButtonLongBreak = false 
+                secondsValue2 = 0;
+                minutesValue2 = 15;
+                buttonLong.disabled = false; 
             }, 500);
         }
         minutesSpan2.textContent = ("0" + minutesValue2).slice(-2);
@@ -196,12 +195,16 @@ const stopLongBreak = () => {
 
 }
 const executeLongBreak = () => {
-    if(startButtonPomodoro){
+    if(startButtonPomodoro || startButtonShortBreak){
         confirmation = confirm("¿Esta seguro que quiere cambiar de opción?");
         if (confirmation){
-            // startButtonPomodoro = false;
+            startButtonShortBreak = false;
+            startButtonPomodoro = false;
+            secondsValue1 = 0;
+            minutesValue1 = 5;
+            secondsValue = 0;
+            minutesValue = 25;
             showLongBreak();
-            // return
         }else{
             return false;
         }

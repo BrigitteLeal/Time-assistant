@@ -23,16 +23,17 @@
                 <p id="time"><span id="minutes">00</span>:<span id="seconds">00</span></p>
             </div>
             <div>
-                <form onsubmit="startTimer()">
+                <form>
                     <!-- <label for="hoursInput">Horas</label>
                     <input id="hoursInput" type="number"><br> -->
                     <label for="minutesInput">Minutos</label>
-                    <input id="minutesInput" type="number" name="minutes"><br>
+                    <input id="minutesInput" type="number" name="minutes"><br> <!--name, se utiliza para hacer referencia a los datos del formulario después de enviarlo o para hacer referencia al elemento en un JavaScript. -->
                     <label for="secondsInput">Segundos</label>
                     <input id="secondsInput" type="text" name="seconds">
-                    <button type="submit" class="button button-hero">Start</button>
-                    <button class="button button-hero" onclick="stopTimer()">Stop</button>
-                    <!-- <button class="button button-hero" onclick="resetTimer()">Reset</button> -->
+                    <button onclick="startTimer()"
+                    type="submit" class="button button-hero">Start</button>
+                    <!-- <button class="button button-hero" onclick="stopTimer()">Stop</button> -->
+                    <button class="button button-hero" onclick="resetTimer()">Reset</button>
                 </form>
             </div>
         </section>

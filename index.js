@@ -61,7 +61,7 @@ function lapChronometer(){
     console.log(printLap1);
     var foo = printLap1.map((lapTest, i)=>{
         console.log(lapTest)
-         return '<span> vuelta ' +(i+1)+' ' + lapTest + '</span> <br>';
+        return '<span> vuelta ' +(i+1)+' ' + lapTest + '</span> <br>';
     })
     console.log(foo)
     result.innerHTML = foo.join('')
