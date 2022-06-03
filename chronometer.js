@@ -1,6 +1,8 @@
+const millisecondsSpan = document.querySelector("#milliseconds");
 const secondsSpan = document.querySelector("#seconds");
 const minutesSpan = document.querySelector("#minutes");
 const hoursSpan = document.querySelector("#hours");
+let millisecondsValue = 0;
 let secondsValue = 0;
 let minutesValue = 0;
 let hoursValue = 0;
@@ -10,8 +12,10 @@ let printLap = [];
 let printLap1 = [];
 let printLapFinal = [];
 let lap = document.getElementById("result");
+let foo = [];
 
 function startChronometer () {
+    
     currentButton = event.target;
     currentButton.disabled = true;
     currentChronometer = setInterval(() => {
@@ -27,7 +31,7 @@ function startChronometer () {
             minutesSpan.textContent = ("0" + minutesValue).slice(-2)
         }
         secondsSpan.textContent = ("0" + secondsValue).slice(-2);
-    }, 1);
+    }, 1000);
     
 }
 function stopChronometer(){
@@ -36,16 +40,9 @@ function stopChronometer(){
     }
     clearInterval(currentChronometer);  
 }
-function resetChronometer(){
-    stopChronometer();
-    secondsValue = 0;
-    secondsSpan.textContent = "00";
-    minutesValue = 0;
-    minutesSpan.textContent = "00";
-    hoursValue = 0;
-    hoursSpan.textContent = "00";
-}
 function lapChronometer(){
+    foo.splice(0, foo.length);
+    console.log(foo);
     const laps = Array.from([hoursValue, minutesValue, secondsValue]);
     laps.forEach(lap => { 
         const lap1 = parseInt(lap);
@@ -55,24 +52,27 @@ function lapChronometer(){
     const lap3 = printLap.join(":");
     const lap4 = lap3.slice(-8);
     printLap1.push(lap4);
-    console.log(lap3);
-    console.log(lap4);
-    console.log(printLap);
-    console.log(printLap1);
-    var foo = printLap1.map((lapTest, i)=>{
+    console.log(foo);
+    foo = printLap1.map((lapTest, i)=>{
+        console.log(printLap1);
         console.log(lapTest)
-        return '<span> vuelta ' +(i+1)+' ' + lapTest + '</span> <br>';
+        return `<span class="lap">Vuelta ${i+1}: </span><span class="timer">${lapTest}</span><br>`;
     })
     console.log(foo)
     result.innerHTML = foo.join('')
-    
-    console.log(printLap);
-    console.log(printLap1);
+}
+console.log(foo);
+function resetChronometer(){
+    stopChronometer();
+    secondsValue = 0;
+    secondsSpan.textContent = "00";
+    minutesValue = 0;
+    minutesSpan.textContent = "00";
+    hoursValue = 0;
+    hoursSpan.textContent = "00";
+    result.innerHTML = '';
+    foo.splice(0, foo.length);
+    printLap1.splice(0, printLap1.length);
 }
 
-// 0. Incluir horas
-// 1. Capturar el resultado segundos
-// 2. Capturar el resultado minutos
-// 3. Capturar el resultado horas
-// 4. Imprimir primer resultado
-// 5. Imprimir segundo resultado sin alterar el primero
+// Agregar milisengundos

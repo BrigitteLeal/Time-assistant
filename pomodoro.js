@@ -50,7 +50,7 @@ const startPomodoro = () => {
         }
         minutesSpan.textContent = ("0" + minutesValue).slice(-2);
         secondsSpan.textContent = ("0" + secondsValue).slice(-2);
-    }, 1);
+    }, 1000);
 }
 const stopPomodoro = () => {
     if (buttonPomodoro){
@@ -62,13 +62,11 @@ const showPomodoro = () => {
     hero.innerHTML = `
         <section class="section-container  pomodoro-container">
             <div class="hero--time">
-                <p id="time"><span id="minutes">25</span>:<span id="seconds">00</span></p>
+                <p id="time" style="color: #7e7e7e; font-size: 6.5rem; font-weight: 700; text-align: center;"><span id="minutes">25</span>:<span id="seconds">00</span></p>
             </div>
-            <div class="hero--buttons">
-                <button class="buttons" id="buttonStartPomodoro" type="button" onclick="startPomodoro()">Start</button>
-            </div>
-            <div>
-                <button class="button button-hero" onclick="stopPomodoro()">Stop</button>
+            <div class="hero--buttons" style="margin-top: 40px; display:flex; justify-content: center">
+                <button class="button" id="buttonStartPomodoro" type="button" onclick="startPomodoro()" style="width: 65px; height: 65px; margin-right: 10px; border-radius: 50%; border: none; background-color: #7e7e7e;"><i class="fa-solid fa-play"></i></button>
+                <button class="button button-hero" onclick="stopPomodoro()" style="width: 65px; height: 65px; border-radius: 50%; border: none; background-color: #7e7e7e;"><i class="fa-solid fa-stop"></i></button>
             </div>
         </section>
     `;
@@ -117,7 +115,7 @@ const startShortBreak = () => {
         }
         minutesSpan1.textContent = ("0" + minutesValue1).slice(-2);
         secondsSpan1.textContent = ("0" + secondsValue1).slice(-2);
-    }, 1);
+    }, 1000);
 }
 const stopShortBreak = () => {
     if (buttonShort){
@@ -147,13 +145,11 @@ const showShortBreak = () => {
     hero.innerHTML = `
         <section class="section-container short-break-container">
             <div class="hero--time">
-                <p id="time"><span id="minutes1">5</span>:<span id="seconds1">00</span></p>
+                <p id="time" style="color: #7e7e7e; font-size: 6.5rem; font-weight: 700; text-align: center;"><span id="minutes1">5</span>:<span id="seconds1">00</span></p>
             </div>
-            <div class="hero--buttons">
-                <button class="buttons" id="buttonStartShort" type="button" onclick="startShortBreak()">Start</button>
-            </div>
-            <div>
-                <button class="button button-hero" onclick="stopShortBreak()">Stop</button>
+            <div class="hero--buttons" style="margin-top: 40px; display:flex; justify-content: center">
+                <button class="button" id="buttonStartShort" type="button" onclick="startShortBreak()" style="width: 65px; height: 65px; margin-right: 10px; border-radius: 50%; border: none; background-color: #7e7e7e;"><i class="fa-solid fa-play"></i></button>
+                <button class="button button-hero" onclick="stopShortBreak()" style="width: 65px; height: 65px; border-radius: 50%; border: none; background-color: #7e7e7e;"><i class="fa-solid fa-stop"></i></button>
             </div>
         </section>
     `
@@ -185,7 +181,7 @@ const startLongBreak = () => {
         }
         minutesSpan2.textContent = ("0" + minutesValue2).slice(-2);
         secondsSpan2.textContent = ("0" + secondsValue2).slice(-2);
-    }, 1);
+    }, 1000);
 }
 const stopLongBreak = () => {
     if (buttonLong){
@@ -215,15 +211,13 @@ const executeLongBreak = () => {
 
 const showLongBreak = () => {
     hero.innerHTML = `
-        <section class="section-container  long-break-container">
+        <section class="section-container long-break-container">
             <div class="hero--time">
-                <p id="time"><span id="minutes2">15</span>:<span id="seconds2">00</span></p>
+                <p id="time" style="color: #7e7e7e; font-size: 6.5rem; font-weight: 700; text-align: center;"><span id="minutes2">15</span>:<span id="seconds2">00</span></p>
             </div>
-            <div class="hero--buttons">
-                <button class="buttons" id="buttonStartLong" type="button" onclick="startLongBreak()">Start</button>
-            </div>
-            <div>
-                <button class="button button-hero" onclick="stopLongBreak()">Stop</button>
+            <div class="hero--buttons" style="margin-top: 40px; display:flex; justify-content: center">
+                <button class="button" id="buttonStartLong" type="button" onclick="startLongBreak()()" style="width: 65px; height: 65px; margin-right: 10px; border-radius: 50%; border: none; background-color: #7e7e7e;"><i class="fa-solid fa-play"></i></button>
+                <button class="button button-hero" onclick="stopLongBreak()" style="width: 65px; height: 65px; border-radius: 50%; border: none; background-color: #7e7e7e;"><i class="fa-solid fa-stop"></i></button>
             </div>
         </section>
     `
@@ -234,11 +228,12 @@ const showLongBreak = () => {
 }
 
 
-//4. alerts cuando usuario cambie boton (para sumar vuelta)
-//5. sumar vueltas
-//6. imprimir vueltas
+//Mejoras
+//Agregar alerts en inglés
+//sumar vueltas
+//imprimir vueltas
+//Sonido a los alerts
 
 
 //Bugs
-//Al usar boton de stop y retornar a start se reinicia timer (pomodoro/short/long)
-//Después de concluir un timer, al darle click a otra opción, arroja alert (ocurre despúes de haber hecho el primer cambio de opción antes de que el timer acabe, NO ocurre si desde el inicio el timer llega a 00:00)
+

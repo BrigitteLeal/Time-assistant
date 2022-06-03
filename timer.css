@@ -1,0 +1,215 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-size: 62.5%;
+    font-family: 'Poppins', sans-serif;
+}
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+:root {
+    --lato: 'Lato', sans-serif;
+    --poppins: 'Poppins', sans-serif;
+    --background: #161F30;
+    --blue-one: #217373;
+    --blue-two: #173540;
+    --green: #84B026;
+    --gray: #7e7e7e;
+}
+body {
+    background-color: var(--background);
+}
+header {
+    width: 100%;
+    height: 10vh;
+    background-color: #131c2c;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+nav span {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+nav span:hover {
+    cursor: cursor;
+}
+nav ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+i {
+    font-size: 2rem;
+    color: white;
+}
+header button {
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 5px;
+}
+header button:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+h1 {
+    margin-left: 10px;
+    font-size: 3rem;
+    color: var(--green)
+}
+.timer-container {
+    margin-top: 30px;
+}
+.timer-container p {
+    font-size: 6.5rem;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+}
+.input-container,
+.label-container {
+    display: flex;
+    justify-content: center;
+}
+.input-container input {
+    width: 70px;
+}
+.input-container p {
+    margin: 0 5px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+}
+.label-container label {
+    margin: 0 7.4px;
+    display: block;
+    width: 70px;
+    color: white;
+    font-size: 1.3rem;
+    text-align: center;
+}
+.label-container p {
+    margin: 0 5px;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.buttons-container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+.buttons-container button {
+    margin: 0 5px;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--gray);
+}
+.buttons-container button:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+@media (min-width: 500px){
+    i {
+        font-size: 2.3rem;
+    }
+    header button {
+        width: 45px;
+        height: 45px;
+    }
+    h1 {
+        font-size: 4rem;
+        text-align: center;
+    }
+}
+@media (min-width: 1300px){
+    i {
+        font-size: 2.6rem;
+    }
+    header button {
+        width: 55px;
+        height: 55px;
+    }
+    h1 {
+        font-size: 5rem;
+        text-align: center;
+    }
+    .timer-container p {
+        font-size: 8.5rem;
+    }
+    .input-container input {
+        width: 100px;
+        height: 30px;
+    }
+    .input-container p {
+        margin: 0 8px;
+        font-size: 2.5rem;
+    }
+    .label-container label {
+        margin: 0 9.5px;
+        width: 100px;
+        font-size: 2rem;
+    }
+    .buttons-container {
+        margin-top: 50px;
+    }
+    .buttons-container button {
+        margin: 0 10px;
+        width: 90px;
+        height: 90px;
+    }
+    .buttons-container button i {
+        font-size: 3.5rem;
+    }
+}
+@media (min-width: 1800px){
+    i {
+        font-size: 4rem;
+    }
+    header button {
+        width: 90px;
+        height: 90px;
+    }
+    nav span {
+        margin-left: 40px;
+    }
+    h1 {
+        font-size: 8rem;
+    }
+    .timer-container p {
+        font-size: 12.5rem;
+    }
+    .input-container input {
+        width: 150px;
+        height: 45px;
+    }
+    .input-container p {
+        margin: 0 10px;
+        font-size: 3rem;
+    }
+    .label-container label {
+        margin: 0 12.5px;
+        width: 150px;
+        font-size: 2.8rem;
+    }
+    .buttons-container button {
+        width: 130px;
+        height: 130px;
+    }
+    .buttons-container button i {
+        font-size: 5.5rem;
+    }
+}

@@ -4,35 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timer</title>
+    <script src="https://kit.fontawesome.com/3a04f89f4a.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Poppins:ital,wght@0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+    <title>Time Interval</title>
 </head>
 <body>
     <header>
-        <nav>
-            <li><button id="chronometer" class="button header--button">Cronometro</button></li>
-            <li><button id="timer" class="button header--button"><a href="./timer.html">Timer</a></button></li>
-            <li><button id="pomodoro" class="button header--button"><a href="./pomodoro.html">Pomodoro</a></button></li>
-    
-        </nav>
+        <h1>Time Interval</h1>
     </header>
     <main>
         <section>
-            <h1 class="hero--title">Cronometro</h1>
-            <div>
-                <p id="time"> <span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span></p>
-            </div>
-            <div>
-                <button class="button button-hero" onclick="startChronometer()">Start</button>
-                <button class="button button-hero" onclick="stopChronometer()">Stop</button>
-                <button class="button button-hero" onclick="resetChronometer()">Reset</button>
-                <button class="button button-hero" onclick="lapChronometer()">Vuelta</button>
-            </div>
-            <div id = "result">
-                <!-- <span id="result"></span> -->
-            </div>
-
+            <button class="button1"><a href="./chronometer.html"><i class="fa-solid fa-stopwatch"></i>Chronometer</a></button>
+            <button class="button2"> <a href="./timer.html"><i class="fa-solid fa-hourglass-end"></i>Timer</a></button>
+            <button class="button3"><a href="./pomodoro.html"><i class="fa-solid fa-clock"></i>Pomodoro timer</a></button>
         </section>
-    </main>
-    <script src="./index.js"></script>
+    </main> 
 </body>
 </html>

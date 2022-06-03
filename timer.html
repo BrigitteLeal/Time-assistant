@@ -4,37 +4,48 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/3a04f89f4a.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Poppins:ital,wght@0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./timer.css">
     <link rel="stylesheet" href="index.html">
-    <title>Document</title>
+    <title>Time Interval | Timer</title>
 </head>
 <body>
     <header>
         <nav>
-            <li><button id="chronometer" class="button header--button"><a href="./index.html">Cronometro</a></button></li>
-            <li><button id="timer" class="button header--button"><a href="./timer.html">Timer</a></button></li>
-            <li><button id="pomodoro" class="button header--button"><a href="./pomodoro.html">Pomodoro</a></button></li>
-    
+            <span><a href="./index.html"><i class="fa-solid fa-ellipsis-vertical"></i></a></span>
+            <ul>
+                <li><button id="chronometer" class="button header--button"><a href="./chronometer.html"><i class="fa-solid fa-stopwatch"></i></a></button></li>
+                <li><button id="timer" class="button header--button"><a href="./timer.html"><i class="fa-solid fa-hourglass-end"></i></a></button></li>
+                <li><button id="pomodoro" class="button header--button"><a href="./pomodoro.html"><i class="fa-solid fa-clock"></i></a></button></li>
+            </ul>
         </nav>
     </header>
     <main>
         <section>
-            <h1 class="hero--title">Timer</h1>
-            <div class="hero--time">
-                <p id="time"><span id="minutes">00</span>:<span id="seconds">00</span></p>
+            <h1 class="timer-title">TIMER</h1>
+            <div class="timer-container">
+                <p id="time"><span id="hours">00</span>:<span id="minutes">00</span>:<span id="seconds">00</span></p>
             </div>
-            <div>
-                <form>
-                    <!-- <label for="hoursInput">Horas</label>
-                    <input id="hoursInput" type="number"><br> -->
-                    <label for="minutesInput">Minutos</label>
-                    <input id="minutesInput" type="number" name="minutes"><br> <!--name, se utiliza para hacer referencia a los datos del formulario después de enviarlo o para hacer referencia al elemento en un JavaScript. -->
-                    <label for="secondsInput">Segundos</label>
-                    <input id="secondsInput" type="text" name="seconds">
-                    <button onclick="startTimer()"
-                    type="submit" class="button button-hero">Start</button>
-                    <!-- <button class="button button-hero" onclick="stopTimer()">Stop</button> -->
-                    <button class="button button-hero" onclick="resetTimer()">Reset</button>
-                </form>
+            <form>
+                <div class="input-label-container">
+                    <div class="input-container">
+                        <input id="hoursInput" type="number" name="hours"><p>:</p>
+                        <input id="minutesInput" type="number" name="minutes"><p>:</p> <!--name, se utiliza para hacer referencia a los datos del formulario después de enviarlo o para hacer referencia al elemento en un JavaScript. -->
+                        <input id="secondsInput" type="number" name="seconds">
+                    </div>
+                    <div class="label-container">
+                        <label for="hoursInput">Hours</label>
+                        <label for="minutesInput">Minutes</label>
+                        <label for="secondsInput">Seconds</label>
+                    </div>
+                </div>
+                <div class="buttons-container">
+                    <button onclick="startTimer()" type="submit" class="button button-hero"><i class="fa-solid fa-play"></i></button>
+                    <button class="button button-hero" onclick="resetTimer()"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+                </div> 
             </div>
         </section>
     </main>              
